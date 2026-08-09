@@ -1,3 +1,5 @@
-public class Moon {
+public class Moon extends CelestialObject{
+
+    
 
 }

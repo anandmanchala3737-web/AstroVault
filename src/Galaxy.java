@@ -1,3 +1,3 @@
-public class Galaxy {
+public class Galaxy extends CelestialObject{
 
 }
