@@ -26,6 +26,7 @@ void setluminosity(double luminosity){
 // toString
 @Override
 public String toString(){
-    return super.toString() +"\n"+ this.spectralType +"\n"+ this.luminosity;
+    // return super.toString() +"\n"+ this.spectralType +"\n"+ this.luminosity;
+    return super.toString() + String.format("Type of the spectral: %s\nLuminosity: %f",this.spectralType,this.luminosity);
 }
 }

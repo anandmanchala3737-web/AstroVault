@@ -35,8 +35,8 @@ void setdistanceFromSun(double distanceFromSun){
 // toString
 @Override
 public String toString(){
-    // supetoStringr();
-    return super.toString() +"\n"+ this.numberOfmoons +"\n"+ this.hasRings +"\n"+ this.distanceFromSun +"\n";
+    // return super.toString() +"\n"+ this.numberOfmoons +"\n"+ this.hasRings +"\n"+ this.distanceFromSun +"\n";
+    return super.toString() + String.format("Number of Moons: %d\nHas Rings: %s\nDistance from sun: %.2f",this.numberOfmoons,(this.hasRings ? "yes":"No"),this.distanceFromSun);
 }
 
 }
