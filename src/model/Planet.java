@@ -1,3 +1,5 @@
+package Model;
+
 public class Planet extends CelestialObject{
 
 private int numberOfmoons;

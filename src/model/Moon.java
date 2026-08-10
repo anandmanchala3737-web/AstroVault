@@ -1,3 +1,4 @@
+package Model;
 public class Moon extends CelestialObject{
     private String parentPlanet;
 

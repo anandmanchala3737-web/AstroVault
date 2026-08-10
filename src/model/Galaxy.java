@@ -1,3 +1,5 @@
+package Model;
+
 public class Galaxy extends CelestialObject{
     private String galaxyType;
     private long estimatedStars;

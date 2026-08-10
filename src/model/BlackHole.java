@@ -1,3 +1,5 @@
+package Model;
+
 public class BlackHole extends CelestialObject{
 private double eventHorizonRadius;
     public BlackHole(String name, double mass, double radius, double surfaceGravity, String description,double eventHorizonRadius){

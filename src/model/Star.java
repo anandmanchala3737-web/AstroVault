@@ -1,3 +1,4 @@
+package Model;
 public class Star extends CelestialObject{
 private String spectralType;
 private double luminosity;
