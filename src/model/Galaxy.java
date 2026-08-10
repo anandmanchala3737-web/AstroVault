@@ -1,11 +1,11 @@
-package Model;
+package model;
 
 public class Galaxy extends CelestialObject{
     private String galaxyType;
     private long estimatedStars;
 
-  public Galaxy(String name, double mass, double radius, double surfaceGravity, String description,String galaxyType,long estimatedStars){
-        super(name,mass,radius,surfaceGravity,description);
+  public Galaxy(String Type,String name, double mass, double radius, double surfaceGravity, String description,String galaxyType,long estimatedStars){
+        super(Type,name,mass,radius,surfaceGravity,description);
         this.galaxyType=galaxyType;
         this.estimatedStars=estimatedStars;
     }

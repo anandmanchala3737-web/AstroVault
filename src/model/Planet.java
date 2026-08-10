@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class Planet extends CelestialObject{
 
@@ -6,8 +6,8 @@ private int numberOfmoons;
 private boolean hasRings;
 private double   distanceFromSun;
 
-    public Planet(String name, double mass, double radius, double surfaceGravity, String description,int numberOfmoons, boolean hasRings, double  distanceFromSun) {
-        super(name,mass,radius,surfaceGravity,description);
+    public Planet(String Type,String name, double mass, double radius,double surfaceGravity, String description,int numberOfmoons, boolean hasRings, double  distanceFromSun) {
+        super(Type,name,mass,radius,surfaceGravity,description);
         this.numberOfmoons=numberOfmoons;
         this.hasRings=hasRings;
         this.distanceFromSun=distanceFromSun;
@@ -38,7 +38,7 @@ void setdistanceFromSun(double distanceFromSun){
 @Override
 public String toString(){
     // return super.toString() +"\n"+ this.numberOfmoons +"\n"+ this.hasRings +"\n"+ this.distanceFromSun +"\n";
-    return super.toString() + String.format("Number of Moons: %d\nHas Rings: %s\nDistance from sun: %.2f",this.numberOfmoons,(this.hasRings ? "yes":"No"),this.distanceFromSun);
+    return super.toString() + String.format("Number of Moons: %d\nHas Rings: %s\nDistance from sun: %.2f(AU)",this.numberOfmoons,(this.hasRings ? "yes":"No"),this.distanceFromSun);
 }
 
 }

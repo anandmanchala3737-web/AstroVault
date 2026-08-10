@@ -1,17 +1,19 @@
-package Model;
+package model;
 
 public class CelestialObject {
+private String Type;
 private String name;
 private double mass;
 private double radius;
 private double surfaceGravity ;
 private String description;
 
-CelestialObject(String name, double mass, double radius, double surfaceGravity, String description){
-
+CelestialObject(String Type,String name, double mass, double radius, double surfaceGravity, String description){
+    
     this.name=name;
     this.mass=mass;
     this.radius=radius;
+    this.Type=Type;
     this.surfaceGravity=surfaceGravity;
     this.description=description;
 
@@ -19,7 +21,7 @@ CelestialObject(String name, double mass, double radius, double surfaceGravity, 
 
 // GETTER AND SETTER
 // getter
-String getName(){
+public String getName(){
     return this.name;
 }
 double getMass(){
@@ -27,6 +29,9 @@ double getMass(){
 }
 double getRadius(){
     return this.radius;
+}
+public String getType(){
+    return this.Type;
 }
 double getsurfaceGravity(){
     return this.surfaceGravity;
@@ -45,6 +50,9 @@ void setMass(double mass){
 void setRadius(double radius){
     this.radius=radius;
 }
+void setType(String Type){
+    this.Type=Type;
+}
 void setsurfaceGravity(double surfaceGravity){
     this.surfaceGravity=surfaceGravity;
 }
@@ -56,7 +64,7 @@ void setDescription(String description){
 @Override
 public String toString(){
     // return this.name +"\n"+ this.mass +"\n"+ this.radius +"\n"+ this.surfaceGravity+"\n"+ this.description;
-    return String.format("Name: %s\nMass: %.2f\nRadius: %.2f\nSurface Gravity: %.2f\nDescription: %s\n",this.name,this.mass,this.radius,this.surfaceGravity,this.description);
+    return String.format("\nType: %s\nName: %s\nMass: %.2f(K/g)\nRadius: %.2f(K/m)\nSurface Gravity: %.2f(m/s\u00B2)\nDescription: %s\n",this.Type,this.name,this.mass,this.radius,this.surfaceGravity,this.description);
 }
 
 }
