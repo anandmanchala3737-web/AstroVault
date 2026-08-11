@@ -3,11 +3,11 @@ import model.*;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-public class SpaceDatebase {
+public class SpaceDatabase {
     
 private final Map<String, CelestialObject> registry;
 
-public SpaceDatebase(){
+public SpaceDatabase(){
     this.registry=new HashMap<>();
     seedDatabase();
 }

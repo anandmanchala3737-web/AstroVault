@@ -64,7 +64,7 @@ void setDescription(String description){
 @Override
 public String toString(){
     // return this.name +"\n"+ this.mass +"\n"+ this.radius +"\n"+ this.surfaceGravity+"\n"+ this.description;
-    return String.format("\nType: %s\nName: %s\nMass: %.2f(K/g)\nRadius: %.2f(K/m)\nSurface Gravity: %.2f(m/s\u00B2)\nDescription: %s\n",this.Type,this.name,this.mass,this.radius,this.surfaceGravity,this.description);
+    return String.format("\nType: %s\nName: %s\nMass: %.2f(K/g)\nRadius: %.2f(Km)\nSurface Gravity: %.2f(ms\u00B2)\nDescription: %s\n",this.Type,this.name,this.mass,this.radius,this.surfaceGravity,this.description);
 }
 
 }

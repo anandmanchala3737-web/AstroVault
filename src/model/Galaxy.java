@@ -30,6 +30,7 @@ public class Galaxy extends CelestialObject{
     @Override
     public String toString(){
         return super.toString() + String.format("Galaxy type: %s\nEstimated stars: %d",this.galaxyType,this.estimatedStars);
+        
     }
     
 }

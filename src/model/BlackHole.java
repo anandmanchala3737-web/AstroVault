@@ -20,6 +20,6 @@ private double eventHorizonRadius;
     // toString
     @Override
     public String toString(){
-        return super.toString() + String.format("EventHorizon Radius: %.2f(k/m)",this.eventHorizonRadius);
+        return super.toString() + String.format("EventHorizon Radius: %.2f(km)",this.eventHorizonRadius);
     }
 }
