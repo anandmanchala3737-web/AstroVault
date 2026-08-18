@@ -1,7 +1,7 @@
-import model.*;
-import java.util.Scanner;
 import data.*;
-
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import model.*;
 public class Main {
     public static void main(String[] args) {
         SpaceDatabase db = new SpaceDatabase();
@@ -15,8 +15,16 @@ public class Main {
             System.out.println("3. Exit");
             System.out.print("Choose an option: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            int choice=0;
+            try{
+            choice = scanner.nextInt();
+            scanner.nextLine();
+            }
+            catch(InputMismatchException e){
+                System.out.println("Invaild option choose 1-3:");
+                scanner.nextLine();
+                continue;
+            }
 
             switch (choice) {
                 case 1:
