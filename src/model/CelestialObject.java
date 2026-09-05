@@ -24,39 +24,39 @@ CelestialObject(String Type,String name, double mass, double radius, double surf
 public String getName(){
     return this.name;
 }
-double getMass(){
+public double getMass(){
     return this.mass;
 }
-double getRadius(){
+public double getRadius(){
     return this.radius;
 }
 public String getType(){
     return this.Type;
 }
-double getsurfaceGravity(){
+public double getsurfaceGravity(){
     return this.surfaceGravity;
 }
-String getDescription(){
+public String getDescription(){
     return this.description;
 }
 
 // setter
-void setName(String name){
+public void setName(String name){
     this.name=name;
 }
-void setMass(double mass){
+public void setMass(double mass){
     this.mass=mass;
 }
-void setRadius(double radius){
+public void setRadius(double radius){
     this.radius=radius;
 }
-void setType(String Type){
+public void setType(String Type){
     this.Type=Type;
 }
-void setsurfaceGravity(double surfaceGravity){
+public void setsurfaceGravity(double surfaceGravity){
     this.surfaceGravity=surfaceGravity;
 }
-void setDescription(String description){
+public void setDescription(String description){
     this.description=description;
 }
 

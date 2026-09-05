@@ -2,9 +2,11 @@ import data.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import model.*;
+import service.Calculator;
 public class Main {
     public static void main(String[] args) {
         SpaceDatabase db = new SpaceDatabase();
+        Calculator cal = new Calculator();
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
@@ -12,6 +14,7 @@ public class Main {
             System.out.println("\n========== ASTROVAULT ==========");
             System.out.println("1. View All Celestial Objects");
             System.out.println("2. Search Object");
+            System.out.println("4. calculator");
             System.out.println("3. Exit");
             System.out.print("Choose an option: ");
 
@@ -44,6 +47,9 @@ public class Main {
                     } else {
                         System.out.println("Object not found!");
                     }
+                    break;
+                case 4:
+                    System.out.println(cal.SurfaceGravity(5.972e24, 6371e3));
                     break;
                 case 3:
                     running = false;
