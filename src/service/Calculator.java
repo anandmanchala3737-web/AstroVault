@@ -1,7 +1,6 @@
 package service;
 
 import model.CelestialObject;
-import java.lang.Math;
 
 public class Calculator {
     
@@ -40,25 +39,55 @@ public class Calculator {
         surfaceGravity=(G*mass)/(radius*radius);  /*(G.M)/R*R */
         return surfaceGravity;
     }
-    public double SurfaceGravityC(CelestialObject obj){
+    public double SurfaceGravity(CelestialObject obj){  /*for how to pass object see case 2 */
         double surfaceGravity;
         surfaceGravity=(G*obj.getMass())/(obj.getRadius()*obj.getRadius());  /*(G.M)/R*R */
         return surfaceGravity;
     }
-// 
+// Orbital Period
     public double OrbitalPeriod(double semiMajorAxis, double mass){
         double time=0;
         time=(2*PI)*Math.sqrt(Math.pow(semiMajorAxis,3)/(G*mass)); /*T = 2pi*sqrt{{a^3}/{G * M}}*/
         return time;
     }
 
-
+// Schwarzschild Radius
     public double SchwarzschildRadius(double mass){
         double radius;
         // formula R=(2.G.M)/c^2
         radius=(2*G*mass)/(Math.pow(SPEED_OF_LIGHT,2));
         return radius;
     }
-
-
+    public double SchwarzschildRadius(CelestialObject obj){
+        double radius;
+        // formula R=(2.G.M)/c^2
+        radius=(2*G*obj.getMass())/(Math.pow(SPEED_OF_LIGHT,2));
+        return radius;
+    }
+// Weight in different planets
+    public double DirectWeight(double G_planet,double W_earth){
+        double weight;
+        // weight = W_earth*(G_planet/G_earth)
+        weight=W_earth*(G_planet/EARTH_GRAVITY);
+        return weight;
+    }
+    public double DirectWeight(double W_earth,double mass, double radius){
+        double G_planet;
+        G_planet=SurfaceGravity(mass,radius);
+        double weight;
+        // weight = W_earth*(G_planet/G_earth)
+        weight=W_earth*(G_planet/EARTH_GRAVITY);
+        return weight;
+    }
+//Orbital Velocity 
+    public double OrbitalVelocity(double mass, double radius){
+       double Orbital_V;
+       Orbital_V=Math.sqrt((G*mass)/radius);
+       return Orbital_V;
+    }
+    public double OrbitalVelocity(CelestialObject obj){
+       double Orbital_V;
+       Orbital_V=Math.sqrt((G*obj.getMass())/obj.getRadius());
+       return Orbital_V;
+    }
 }
