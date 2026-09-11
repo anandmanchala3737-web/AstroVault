@@ -1,8 +1,8 @@
-import data.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import model.*;
 import service.Calculator;
+import data.SpaceDatabase;
 public class Main {
     public static void main(String[] args) {
         SpaceDatabase db = new SpaceDatabase();
@@ -55,6 +55,9 @@ public class Main {
                     System.out.println((cal.SchwarzschildRadius(4.178e30))/1000);
                     System.out.println(cal.DirectWeight(3.72,49));
                     System.out.println(cal.OrbitalVelocity(5.972e24,6371e3));
+                    System.out.println(cal.StellarLuminosity(1073e5,3050));
+                    System.out.println(cal.HabitableZone(7.099e23));
+                    System.out.println(cal.Escapevelociy(5.972e24,6771e3));
                     break;
                 case 3:
                     running = false;

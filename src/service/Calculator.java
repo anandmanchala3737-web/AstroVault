@@ -33,10 +33,16 @@ public class Calculator {
     public static final double PI = Math.PI;
 
 
-// SurfaceGravity
+/**
+ * Calculates the Surface Gravity of a celestial object.
+ *
+ * @param mass Mass of the object in kilograms.
+ * @param radius Radius of the object in meters.
+ * @return Surface Gravity in meters per second (m/s^2).
+ */
     public double SurfaceGravity(double mass, double radius){
         double surfaceGravity;
-        surfaceGravity=(G*mass)/(radius*radius);  /*(G.M)/R*R */
+        surfaceGravity=(G*mass)/(radius*radius);  //(G.M)/R*R 
         return surfaceGravity;
     }
     public double SurfaceGravity(CelestialObject obj){  /*for how to pass object see case 2 */
@@ -44,14 +50,25 @@ public class Calculator {
         surfaceGravity=(G*obj.getMass())/(obj.getRadius()*obj.getRadius());  /*(G.M)/R*R */
         return surfaceGravity;
     }
-// Orbital Period
+
+    /**
+ * Calculates the Orbital Period of a celestial object.
+ *
+ * @param semiMajorAxis of the object in meters.
+ * @param mass mass of the object in kilograms.
+ * @return Orbital Period in seconds.
+ */
     public double OrbitalPeriod(double semiMajorAxis, double mass){
-        double time=0;
-        time=(2*PI)*Math.sqrt(Math.pow(semiMajorAxis,3)/(G*mass)); /*T = 2pi*sqrt{{a^3}/{G * M}}*/
+       double time=(2*PI)*Math.sqrt(Math.pow(semiMajorAxis,3)/(G*mass)); /*T = 2pi*sqrt{{a^3}/{G * M}}*/
         return time;
     }
 
-// Schwarzschild Radius
+    /**
+ * Calculates the Schwarzschild Radius of a celestial object.
+ *
+ * @param mass mass of the object in kilograms.
+ * @return Schwarzschild Radius in meters.
+ */
     public double SchwarzschildRadius(double mass){
         double radius;
         // formula R=(2.G.M)/c^2
@@ -64,11 +81,17 @@ public class Calculator {
         radius=(2*G*obj.getMass())/(Math.pow(SPEED_OF_LIGHT,2));
         return radius;
     }
-// Weight in different planets
+    
+    /**
+ * Calculates the Direct Weight of a celestial object.
+ *
+ * @param G_planet surface gravity of the object in m/s^2.
+ * @param W_earth weight of the object in earth is in kilograms.
+ * @return Object weight in kilograms.
+ */
     public double DirectWeight(double G_planet,double W_earth){
-        double weight;
         // weight = W_earth*(G_planet/G_earth)
-        weight=W_earth*(G_planet/EARTH_GRAVITY);
+        double weight=W_earth*(G_planet/EARTH_GRAVITY);
         return weight;
     }
     public double DirectWeight(double W_earth,double mass, double radius){
@@ -79,10 +102,16 @@ public class Calculator {
         weight=W_earth*(G_planet/EARTH_GRAVITY);
         return weight;
     }
-//Orbital Velocity 
+    /**
+ * Calculates the Orbital Velocity of a celestial object.
+ *
+ * @param mass mass of the object in kilograms.
+ * @param radius radius of the object in meters.
+ * @return Orbital Velocity in meters per seconds.
+ */
     public double OrbitalVelocity(double mass, double radius){
        double Orbital_V;
-       Orbital_V=Math.sqrt((G*mass)/radius);
+       Orbital_V=Math.sqrt((G*mass)/radius);   
        return Orbital_V;
     }
     public double OrbitalVelocity(CelestialObject obj){
@@ -90,4 +119,43 @@ public class Calculator {
        Orbital_V=Math.sqrt((G*obj.getMass())/obj.getRadius());
        return Orbital_V;
     }
+
+    /**
+ * Calculates the Escape Velocity of a celestial object.
+ *
+ * @param mass mass of the object in kilograms.
+ * @param radius radius of the object in meters.
+ * @return Escape Velocity in meters per seconds.
+ */
+    public double Escapevelociy(double mass, double radius){
+        double esp=Math.sqrt((2*G*mass)/radius);
+        return esp;
+    }
+    public double Escapevelociy(CelestialObject obj){
+        double esp=Math.sqrt((2*G*obj.getMass())/obj.getRadius());
+        return esp;
+    }
+
+    /**
+ * Calculates the Stellar Luminosity of a celestial object.
+ *
+ * @param radius radius of the object in meters.
+ * @param temp temparature of the object in Kelvin
+ * @return Stellar Luminosity of the object in power/watts.
+ */
+    public double StellarLuminosity(double radius, double temp){
+        double lumi=(4*PI)*(Math.pow(radius,2))*(STEFAN_BOLTZMANN*(Math.pow(temp,4)));
+        return lumi/SUN_LUMINOSITY;
+    }
+    /**
+ * Calculates the Habitable Zone of a celestial object.
+ *
+ * @param starLumi Stellar Luminosity of the object in power/watts.
+ * @return Habitable Zone of the object in Astronomical Unit.
+ */
+    public double HabitableZone(double starLumi){   //watts
+        double habiZone=Math.sqrt(starLumi/SUN_LUMINOSITY);
+        return habiZone;
+    }
+
 }
