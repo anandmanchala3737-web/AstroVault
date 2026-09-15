@@ -49,15 +49,8 @@ public class Main {
                     }
                     break;
                 case 4:
-                    System.out.println(cal.SurfaceGravity(5.972e24,6371e3));
-                    double time=cal.OrbitalPeriod(3.84399e8,6.04566e24);
-                    System.out.println(time/86400);
-                    System.out.println((cal.SchwarzschildRadius(4.178e30))/1000);
-                    System.out.println(cal.DirectWeight(3.72,49));
-                    System.out.println(cal.OrbitalVelocity(5.972e24,6371e3));
-                    System.out.println(cal.StellarLuminosity(1073e5,3050));
-                    System.out.println(cal.HabitableZone(7.099e23));
-                    System.out.println(cal.Escapevelociy(5.972e24,6771e3));
+                    cal.WhileLoop();
+                    cal.running=true;
                     break;
                 case 3:
                     running = false;

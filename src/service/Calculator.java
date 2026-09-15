@@ -1,5 +1,6 @@
 package service;
-
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import model.CelestialObject;
 
 public class Calculator {
@@ -31,6 +32,85 @@ public class Calculator {
     
     // PI
     public static final double PI = Math.PI;
+
+    public boolean running = true;
+    Scanner scanner = new Scanner(System.in);
+
+    public void WhileLoop(){
+        while (running){
+            System.out.println("\n========== Calculator ========");
+            System.out.println("1. Surface Gravity");
+            System.out.println("2. Orbital Period");
+            System.out.println("3. Schwarzschild Radius");
+            System.out.println("4. Direct Weight");
+            System.out.println("5. Orbital Velocity");
+            System.out.println("6. Escape Velocity");
+            System.out.println("7. Stellar Luminosity");
+            System.out.println("8. Habitable Zone");
+            System.out.println("9. Exit");
+
+            int choice=0;
+            try{
+            choice = scanner.nextInt();
+            scanner.nextLine();
+            }
+            catch(InputMismatchException e){
+                System.out.println("Invaild option choose 1-8:");
+                scanner.nextLine();
+                continue;
+            }
+            switch(choice){
+                case 1 ->{
+                System.out.println("Enter the masss and radius:");
+                double mass = scanner.nextDouble();
+                double radius = scanner.nextDouble();
+                System.out.println(SurfaceGravity(mass,radius));
+                }
+                case 2 ->{
+                System.out.println("Enter the lenght of the semi-major Axis and mass:");
+                double semiMajorAxis = scanner.nextDouble();
+                double mass = scanner.nextDouble();
+                System.out.println(OrbitalPeriod(semiMajorAxis,mass));
+                }
+                case 3 ->{
+                System.out.println("Enter the masss:");
+                double mass = scanner.nextDouble();
+                System.out.println(SchwarzschildRadius(mass));
+                }
+                case 4 ->{
+                System.out.println("Enter the masss and radius:");
+                double G_planet = scanner.nextDouble();
+                double W_earth = scanner.nextDouble();
+                System.out.println(DirectWeight(G_planet,W_earth));
+                }
+                case 5 ->{
+                System.out.println("Enter the masss and radius:");
+                double mass = scanner.nextDouble();
+                double radius = scanner.nextDouble();
+                System.out.println(OrbitalVelocity(mass,radius));
+                }
+                case 6 ->{
+                System.out.println("Enter the masss and radius:");
+                double mass = scanner.nextDouble();
+                double radius = scanner.nextDouble();
+                System.out.println(Escapevelociy(mass,radius));
+                }
+                case 7 ->{
+                System.out.println("Enter the masss and radius:");
+                double radius = scanner.nextDouble();
+                double temp = scanner.nextDouble();
+                System.out.println(StellarLuminosity(radius,temp));
+                }
+                case 8 ->{
+                System.out.println("Enter the masss and radius:");
+                double starLumi = scanner.nextDouble();
+                System.out.println(HabitableZone(starLumi));
+                }
+                case 9 ->
+                running = false;
+            }
+            }
+        }
 
 
 /**
