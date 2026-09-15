@@ -14,8 +14,8 @@ public class Main {
             System.out.println("\n========== ASTROVAULT ==========");
             System.out.println("1. View All Celestial Objects");
             System.out.println("2. Search Object");
-            System.out.println("4. calculator");
-            System.out.println("3. Exit");
+            System.out.println("3. calculator");
+            System.out.println("4. Exit");
             System.out.print("Choose an option: ");
 
             int choice=0;
@@ -30,15 +30,15 @@ public class Main {
             }
 
             switch (choice) {
-                case 1:
+                case 1 ->{
                     int i=1;
                     for (CelestialObject obj : db.getAllObjects()) {
                         System.out.println("\n"+i+")"+obj.getName() + " ("+obj.getType()+")");
                         i++;
                     }
                     System.out.println("**This are the CelestialObject I have, Choose one**");
-                    break;
-                case 2:
+                }
+                case 2 ->{
                     System.out.print("Enter object name: ");
                     String name = scanner.nextLine();
                     CelestialObject target = db.getObject(name);
@@ -47,16 +47,17 @@ public class Main {
                     } else {
                         System.out.println("Object not found!");
                     }
-                    break;
-                case 4:
+                }
+                case 3 ->{
                     cal.WhileLoop();
                     cal.running=true;
-                    break;
-                case 3:
+                }
+                    
+                case 4 -> { 
                     running = false;
                     System.out.println("NOTE:Some feature are going to update soon until PLEASE wait\nExiting AstroVault...");
-                    break;
-                default:
+                }
+                default ->
                     System.out.println("Invalid option. Try again.\n");
             }
         }
