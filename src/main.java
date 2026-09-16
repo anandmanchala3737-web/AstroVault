@@ -7,10 +7,10 @@ public class Main {
     public static void main(String[] args) {
         SpaceDatabase db = new SpaceDatabase();
         Calculator cal = new Calculator();
-        Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
-        while (running) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            while (running) {
             System.out.println("\n========== ASTROVAULT ==========");
             System.out.println("1. View All Celestial Objects");
             System.out.println("2. Search Object");
@@ -18,7 +18,7 @@ public class Main {
             System.out.println("4. Exit");
             System.out.print("Choose an option: ");
 
-            int choice=0;
+            int choice;
             try{
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -60,8 +60,8 @@ public class Main {
                 default ->
                     System.out.println("Invalid option. Try again.\n");
             }
+            }
         }
-        scanner.close();
     }
 }
 
