@@ -49,7 +49,8 @@ public class Calculator {
             System.out.println("6. Escape Velocity");
             System.out.println("7. Stellar Luminosity");
             System.out.println("8. Habitable Zone");
-            System.out.println("9. Exit");
+            System.out.println("9. Calculator Guid");
+            System.out.println("10. Exit");
 
             int choice;
             try{
@@ -66,50 +67,61 @@ public class Calculator {
                 case 1 ->{
                 double mass = read(scanner,"Enter the masss(kg): ");
                 double radius =  read(scanner,"Enter the radius(m): ");
-                System.out.println("Surface Gravity: "+formatter(SurfaceGravity(mass,radius)));
+                System.out.printf("Surface Gravity: "+formatter(SurfaceGravity(mass,radius))+"(ms\u00B2)");
                 }
                 case 2 ->{
                 double semiMajorAxis =  read(scanner,"Enter the semi-major axis(m): ");
                 double mass =  read(scanner,"Enter the mass(kg): ");
-                System.out.println("Orbital Period: "+formatter(OrbitalPeriod(semiMajorAxis,mass)));
+                System.out.println("Orbital Period: "+formatter(OrbitalPeriod(semiMajorAxis,mass))+"Days");
                 }
                 case 3 ->{
                 double mass =  read(scanner,"Enter the mass(kg): ");
-                System.out.println("Schwarzschild Radius: "+formatter(SchwarzschildRadius(mass)));
+                System.out.println("Schwarzschild Radius: "+formatter(SchwarzschildRadius(mass))+"(KM)");
                 }
                 case 4 ->{
                 double G_planet =  read(scanner,"Enter the Surface Grvity(m/s^2): ");
                 double W_earth =  read(scanner,"Enter weight of the object in earth(kg): ");
-                System.out.println("Weight in other planet:"+formatter(DirectWeight(G_planet,W_earth)));
+                System.out.println("Weight in other planet:"+formatter(DirectWeight(G_planet,W_earth))+"(KG)");
                 }
                 case 5 ->{
                 double mass =  read(scanner,"Enter the mass(kg): ");
                 double radius =  read(scanner,"Enter the radius(m): ");
-                System.out.println("Orbital Velocity: "+formatter(OrbitalVelocity(mass,radius)));
+                System.out.println("Orbital Velocity: "+formatter(OrbitalVelocity(mass,radius))+"(ms\u00B2)");
                 }
                 case 6 ->{
                 double mass =  read(scanner,"Enter the mass(kg): ");
                 double radius =  read(scanner,"Enter the radius(m): ");
-                System.out.println("Escape velociy: "+formatter(Escapevelociy(mass,radius)));
+                System.out.println("Escape velociy: "+formatter(Escapevelocity(mass,radius))+"(ms\u00B2)");
                 }
                 case 7 ->{
                 double radius =  read(scanner,"Enter the radius(m): ");
                 double temp =  read(scanner,"Enter the temparature(K): ");
-                System.out.println("Stellar Luminosity: "+formatter(StellarLuminosity(radius,temp)));
+                System.out.println("Stellar Luminosity: "+formatter(StellarLuminosity(radius,temp))+"(Watts)");
                 }
                 case 8 ->{
                 double starLumi =  read(scanner,"Enter the stellar Luminosity(watts): ");
-                System.out.println("Habitable Zone: "+formatter(HabitableZone(starLumi)));
+                System.out.println("Habitable Zone: "+formatter(HabitableZone(starLumi))+"(AU)");
                 }
-                case 9 ->
+                case 9 ->{
+                    String CalculatorGuid = "Surface Gravity: The pull of gravity felt when standing on an object's surface. It determines how heavy things feel and controls whether an object can hold onto an atmosphere.\nOrbital Period: The time it takes for a space object to complete one full revolution around another body (like Earth taking 365 days to orbit the Sun).\nSchwarzschild Radius: The size boundary of a black hole. If an object is squeezed smaller than this radius, its gravity becomes so strong that nothing—not even light—can escape it.\nDirect Weight: The actual force exerted on an object due to gravity. Unlike mass (which stays constant), your direct weight changes depending on the gravity of the planet you are standing on.\nOrbital Velocity: The exact speed a spacecraft or moon needs to travel to stay in a stable orbit around a larger body without falling down or drifting away into space.\nEscape Velocity: The minimum speed an object or rocket must reach to completely break free from a planet or star's gravitational pull without using any more fuel.\nStellar Luminosity: The total amount of energy and light a star produces and radiates into space every second (essentially a star's brightness output).\nHabitable Zone: The region around a star where temperatures are just right—not too hot and not too cold—for liquid water to exist on a planet's surface (often called the 'Goldilocks Zone').";
+                    for (char c : CalculatorGuid.toCharArray()) {
+                            System.out.print(c);
+                            try {
+                                Thread.sleep(75); // Delay in milliseconds
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt();
+                        }
+                    }
+                }
+                case 10 ->
                 running = false;
             }
             }
         }
 
         public String formatter(double value){
-            BigDecimal bd = new BigDecimal(value);
-            DecimalFormat formatter =new DecimalFormat("#,###");
+            BigDecimal bd = BigDecimal.valueOf(value);
+            DecimalFormat formatter =new DecimalFormat("#,##0.##");
             return formatter.format(bd);
         }
         private static double read(Scanner scanner, String prompt){
@@ -158,20 +170,20 @@ public class Calculator {
  */
     public double OrbitalPeriod(double semiMajorAxis, double mass){
        double time=(2*PI)*Math.sqrt(Math.pow(semiMajorAxis,3)/(G*mass)); /*T = 2pi*sqrt{{a^3}/{G * M}}*/
-        return time;
+        return time/SECONDS_PER_DAY;
     }
 
     /**
  * Calculates the Schwarzschild Radius of a celestial object.
  *
  * @param mass mass of the object in kilograms.
- * @return Schwarzschild Radius in meters.
+ * @return Schwarzschild Radius in kilometers.
  */
     public double SchwarzschildRadius(double mass){
         double radius;
         // formula R=(2.G.M)/c^2
         radius=(2*G*mass)/(Math.pow(SPEED_OF_LIGHT,2));
-        return radius;
+        return radius/1000;
     }
     public double SchwarzschildRadius(CelestialObject obj){
         double radius;
@@ -225,7 +237,7 @@ public class Calculator {
  * @param radius radius of the object in meters.
  * @return Escape Velocity in meters per seconds.
  */
-    public double Escapevelociy(double mass, double radius){
+    public double Escapevelocity(double mass, double radius){
         double esp=Math.sqrt((2*G*mass)/radius);
         return esp;
     }
